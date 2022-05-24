@@ -40,6 +40,14 @@ apt update -y && apt install google-chrome-stable -y
 # Install Slack
 flatpak install flathub com.slack.Slack -y
 
+# Install Franz
+wget https://github.com/meetfranz/franz/releases/download/v5.9.2/franz_5.9.2_amd64.deb -O franz.deb
+
+sudo dpkg -i franz.deb
+
+apt install ./franz.deb
+
+
 # Install Python and packages
 apt install software-properties-common -y
 add-apt-repository ppa:deadsnakes/ppa -y
