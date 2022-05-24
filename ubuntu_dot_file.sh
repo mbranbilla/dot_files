@@ -18,6 +18,9 @@ snap install core -y
 
 apt install gnome-software-plugin-flatpak -y
 
+# Install Oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Install codecs
 apt install ubuntu-restricted-extras -y
 
@@ -60,6 +63,16 @@ apt install r-base -y
 wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.02.1-461-amd64.deb
 dpkg -i rstudio-2022.02.1-461-amd64.deb
 
+# VS Code
+apt install software-properties-common apt-transport-https wget -y
+
+wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
+
+echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
+
+apt update -y
+
+apt install code -y
 
 # Some utils stufs
 apt install curl -y
